@@ -1,6 +1,6 @@
 const API_URL =
   import.meta.env.API_URL ||
-  "https://employee-management-system-three-xi.vercel.app/api";
+  "https://employee-management-system-psi-one.vercel.app/api";
 
 interface Employee {
   id: string;
