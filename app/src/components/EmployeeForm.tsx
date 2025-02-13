@@ -212,7 +212,8 @@ export const EmployeeForm = ({ employee, onSubmit }: EmployeeFormProps) => {
           helperText={errors.startDate}
         />
       </Box>
-      <FormControl>
+      {  /*Since deployed on free server we cant store documents and  photos 
+      <FormControl>     
         <FormLabel>Employee Photo</FormLabel>
         <Input
           type="file"
@@ -229,7 +230,7 @@ export const EmployeeForm = ({ employee, onSubmit }: EmployeeFormProps) => {
           onChange={handleDocumentsChange}
           inputProps={{ multiple: true }}
         />
-      </FormControl>
+      </FormControl> */}
       <Button
         type="submit"
         variant="contained"
