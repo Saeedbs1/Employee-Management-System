@@ -1,5 +1,5 @@
-import express from "express";
-import Timesheet from "../models/Timesheets.js";
+const express = require("express");
+const Timesheet = require("../models/Timesheets.cjs");
 
 const router = express.Router();
 
@@ -35,6 +35,4 @@ router.delete("/:id", async (req, res) => {
   res.json({ message: "Timesheet deleted" });
 });
 
-
-
-export default router;
+module.exports = router;

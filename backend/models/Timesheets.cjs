@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const TimesheetSchema = new mongoose.Schema({
   employee: {
@@ -11,4 +11,4 @@ const TimesheetSchema = new mongoose.Schema({
   summary: { type: String, required: true },
 });
 
-export default mongoose.model("Timesheet", TimesheetSchema);
+module.exports = mongoose.model("Timesheet", TimesheetSchema);

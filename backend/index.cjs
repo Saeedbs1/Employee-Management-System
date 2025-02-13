@@ -1,9 +1,9 @@
-import "dotenv/config";
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
-import timesheetRoutes from "./routes/timesheets.js";
-import employeeRoutes from "./routes/employees.js";
+require("dotenv").config();
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const timesheetRoutes = require("./routes/timesheets.cjs");
+const employeeRoutes = require("./routes/employees.cjs");
 
 const app = express();
 app.use(express.json());
