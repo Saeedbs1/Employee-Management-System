@@ -30,7 +30,12 @@ export default function TimesheetsPage() {
 
   return (
     <Box sx={{ margin: "2rem" }}>
-       <Typography variant="h4" gutterBottom align="center" sx={{ mb: 2 }}>
+      <Typography
+        variant="h4"
+        gutterBottom
+        align="center"
+        sx={{ margin: "3rem 0" }}
+      >
         Timesheets
       </Typography>
       <Box

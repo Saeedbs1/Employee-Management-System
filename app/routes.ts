@@ -8,5 +8,5 @@ export default [
   route("timesheets", "routes/root/timesheets.tsx"),
   route("timesheets/new", "routes/root/timesheetForm.tsx"),
   route("timesheets/:id", "routes/root/timesheetView.tsx"),
-  route("timesheets/edit/:id", "src/pages/EditTimesheetPage.tsx"),
+  route("timesheets/edit/:id", "routes/root/editTimesheet.tsx"),
 ] satisfies RouteConfig;

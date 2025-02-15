@@ -25,7 +25,12 @@ export const AddEmployeePage = () => {
 
   return (
     <Box sx={{ padding: "2rem" }}>
-      <Typography variant="h4" gutterBottom align="center" sx={{ mb: 2 }}>
+      <Typography
+        variant="h4"
+        gutterBottom
+        align="center"
+        sx={{ margin: "3rem 0"}}
+      >
         Add New Employee
       </Typography>
       <EmployeeForm onSubmit={handleEmployeeSubmit} />

@@ -118,7 +118,7 @@ export const EmployeeForm = ({ employee, onSubmit }: EmployeeFormProps) => {
       onSubmit={handleSubmit}
       sx={{ display: "flex", flexDirection: "column", gap: 2 }}
     >
-      <Typography variant="h6">Employee Details</Typography>
+
 
       <Box sx={{ display: "flex", gap: 2 }}>
         <TextField

@@ -62,7 +62,7 @@ export default function EditEmployeePage() {
 
   return (
     <Box sx={{ margin: "2rem" }}>
-      <Typography variant="h4" gutterBottom align="center" sx={{ mb: 2 }}>
+      <Typography variant="h4" gutterBottom align="center" sx={{ margin: "3rem 0"}}>
         Edit Employee
       </Typography>
       <EmployeeForm employee={employee} onSubmit={handleSubmit} />

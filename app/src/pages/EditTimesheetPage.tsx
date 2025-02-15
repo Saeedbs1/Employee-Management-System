@@ -62,9 +62,6 @@ export default function EditTimesheetPage() {
 
   return (
     <Box sx={{ margin: "2rem" }}>
-      <Typography variant="h4" gutterBottom align="center" sx={{ mb: 2 }}>
-        Edit Timesheet
-      </Typography>
       <TimesheetForm timesheet={timesheet} onSubmit={handleSubmit} />
     </Box>
   );

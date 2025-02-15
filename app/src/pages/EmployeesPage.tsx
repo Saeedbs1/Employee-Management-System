@@ -1,22 +1,43 @@
 import { EmployeeList } from "../components/EmployeeList";
-import { Button, Box, TextField, Typography } from "@mui/material";
-import { useState, useMemo } from "react";
+import {
+  Button,
+  Box,
+  TextField,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import type { Employee } from "../../src/types";
+import { getEmployees } from "../api"; 
 
-interface EmployeesPageProps {
-  employees: Employee[];
-}
-
-export const EmployeesPage = ({ employees }: EmployeesPageProps) => {
+export const EmployeesPage = () => {
+  const [employees, setEmployees] = useState<Employee[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      try {
+        const fetchedEmployees = await getEmployees();
+        setEmployees(fetchedEmployees);
+      } catch (err) {
+        setError("Failed to fetch employees. Please try again later.");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEmployees();
+  }, []);
 
   const handleSearchInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setSearchInput(event.target.value);
   };
-
 
   const filteredEmployeeData = useMemo(
     () =>
@@ -28,9 +49,34 @@ export const EmployeesPage = ({ employees }: EmployeesPageProps) => {
     [searchInput, employees]
   );
 
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          width: "100vw",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <Box sx={{ margin: "2rem" }}>
-      <Typography variant="h4" gutterBottom align="center" sx={{ margin: 5}}>
+      <Typography
+        variant="h4"
+        gutterBottom
+        align="center"
+        sx={{ margin: "3rem 0" }}
+      >
         Employees
       </Typography>
       <Box

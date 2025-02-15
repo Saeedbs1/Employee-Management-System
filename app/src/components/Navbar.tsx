@@ -10,10 +10,13 @@ export const Navbar = () => {
             display: "flex",
             justifyContent: "space-between",
             width: "100%",
+            padding: "15px",
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Typography variant="h6">Employee Management System</Typography>
+            <Typography variant="h6">
+              Employee Management System
+            </Typography>
           </Box>
           <Box sx={{ display: "flex", gap: 3 }}>
             <Button color="inherit" component={Link} to="/" variant="outlined">

@@ -6,6 +6,7 @@ import {
   MenuItem,
   Box,
   FormHelperText,
+  Typography,
 } from "@mui/material";
 import type { Employee, Timesheet } from "../types";
 import {
@@ -82,62 +83,71 @@ export default function TimesheetForm() {
   };
 
   return (
-    <Box sx={{ width: "400px", margin: "auto", marginTop: "2rem" }}>
-      <h2>{id ? "Edit Timesheet" : "New Timesheet"}</h2>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          select
-          label="Employee"
-          value={timesheet.employee?._id || ""}
-          onChange={(e) => handleInputChange("employee", e.target.value)}
-          fullWidth
-          margin="normal"
-          error={!!errors.employee}
-          helperText={errors.employee}
-        >
-          {employees.map((emp) => (
-            <MenuItem key={emp._id} value={emp._id}>
-              {emp.name}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          type="datetime-local"
-          label="Start Time"
-          value={timesheet.startTime}
-          onChange={(e) => handleInputChange("startTime", e.target.value)}
-          InputLabelProps={{ shrink: true }}
-          fullWidth
-          margin="normal"
-          error={!!errors.startTime}
-          helperText={errors.startTime}
-        />
-        <TextField
-          type="datetime-local"
-          label="End Time"
-          value={timesheet.endTime}
-          onChange={(e) => handleInputChange("endTime", e.target.value)}
-          fullWidth
-          margin="normal"
-          InputLabelProps={{ shrink: true }}
-          error={!!errors.endTime}
-          helperText={errors.endTime}
-        />
-        <TextField
-          label="Summary"
-          multiline
-          rows={3}
-          value={timesheet.summary}
-          onChange={(e) => handleInputChange("summary", e.target.value)}
-          fullWidth
-          margin="normal"
-          error={!!errors.summary}
-          helperText={errors.summary}
-        />
-        <Button type="submit" variant="contained" fullWidth>
-          Save
-        </Button>
-      </form>
-    </Box>
+    <>
+      <Typography
+        variant="h4"
+        gutterBottom
+        align="center"
+        sx={{ margin: "3rem 0" }}
+      >
+        {id ? "Edit Timesheet" : "New Timesheet"}
+      </Typography>
+      <Box sx={{ width: "400px", margin: "auto", marginTop: "2rem" }}>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            select
+            label="Employee"
+            value={timesheet.employee?._id || ""}
+            onChange={(e) => handleInputChange("employee", e.target.value)}
+            fullWidth
+            margin="normal"
+            error={!!errors.employee}
+            helperText={errors.employee}
+          >
+            {employees.map((emp) => (
+              <MenuItem key={emp._id} value={emp._id}>
+                {emp.name}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            type="datetime-local"
+            label="Start Time"
+            value={timesheet.startTime}
+            onChange={(e) => handleInputChange("startTime", e.target.value)}
+            InputLabelProps={{ shrink: true }}
+            fullWidth
+            margin="normal"
+            error={!!errors.startTime}
+            helperText={errors.startTime}
+          />
+          <TextField
+            type="datetime-local"
+            label="End Time"
+            value={timesheet.endTime}
+            onChange={(e) => handleInputChange("endTime", e.target.value)}
+            fullWidth
+            margin="normal"
+            InputLabelProps={{ shrink: true }}
+            error={!!errors.endTime}
+            helperText={errors.endTime}
+          />
+          <TextField
+            label="Summary"
+            multiline
+            rows={3}
+            value={timesheet.summary}
+            onChange={(e) => handleInputChange("summary", e.target.value)}
+            fullWidth
+            margin="normal"
+            error={!!errors.summary}
+            helperText={errors.summary}
+          />
+          <Button type="submit" variant="contained" fullWidth>
+            Save
+          </Button>
+        </form>
+      </Box>
+    </>
   );
 }
